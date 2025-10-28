@@ -78,6 +78,32 @@ Cada bloque incluye:
 - 🛠️ Lista de herramientas recomendadas
 - 📊 Casos de estudio con métricas reales
 - 🎯 Ejercicios prácticos aplicables
+- 📊 **Diagramas interactivos con Mermaid** (nuevos en cada bloque)
+
+### 📊 Diagramas Visuales
+
+Cada bloque incluye diagramas interactivos creados con Mermaid para facilitar el aprendizaje:
+
+- **[Bloque 1: Diagramas de Fundamentos](Bloque-1-Fundamentos/code-snippets/diagrams.md)**
+  - Evolución del mercado de IA
+  - Comparativa de modelos LLM
+  - Framework de evaluación de ROI
+  - IA Tradicional vs Generativa
+  - Ciclo de adopción empresarial
+
+- **[Bloque 2: Diagramas de Aplicaciones](Bloque-2-Aplicaciones-Empresariales/code-snippets/diagrams.md)**
+  - Flujo de automatización inteligente
+  - Arquitectura de chatbot empresarial
+  - Embudo de ventas con IA
+  - Pipeline de desarrollo con IA
+  - Customer journey potenciado
+
+- **[Bloque 3: Diagramas de Implementación](Bloque-3-Implementacion-y-Casos-Practicos/code-snippets/diagrams.md)**
+  - Arquitecturas de solución (API-First, RAG)
+  - Roadmap de implementación
+  - Ciclo de mejora de prompts
+  - Stack tecnológico completo
+  - Monitoreo en producción
 
 ### Sectores Cubiertos
 
