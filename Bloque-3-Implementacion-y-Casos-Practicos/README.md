@@ -50,10 +50,39 @@ Al finalizar este bloque, serás capaz de:
 
 **1. API-First (Recomendado para la mayoría)**
 
-```
-Tu App → API Gateway → LLM API (OpenAI/Anthropic)
-                    ↓
-                 Tu Base de Datos
+```mermaid
+flowchart TB
+    subgraph "Aplicación Cliente"
+        App[Tu Aplicación Web/Móvil]
+    end
+
+    subgraph "Backend"
+        API[API Gateway]
+        Auth[Autenticación]
+        Logic[Lógica de Negocio]
+        DB[(Base de Datos)]
+    end
+
+    subgraph "Servicios IA"
+        LLM[LLM API<br/>OpenAI/Anthropic/Grok]
+        Vector[(Vector DB<br/>Embeddings)]
+    end
+
+    App -->|Request| API
+    API --> Auth
+    Auth --> Logic
+    Logic -->|Context| DB
+    Logic -->|Prompt| LLM
+    LLM -->|Response| Logic
+    Logic -->|Store| DB
+    Logic -->|Response| App
+
+    LLM -.->|Embeddings| Vector
+    Logic -.->|Semantic Search| Vector
+
+    style App fill:#2196F3,stroke:#1565C0,color:#fff
+    style LLM fill:#4CAF50,stroke:#2E7D32,color:#fff
+    style DB fill:#FF9800,stroke:#EF6C00,color:#fff
 ```
 
 **Ventajas:**
@@ -76,8 +105,29 @@ const response = await openai.chat.completions.create({
 
 **2. RAG (Retrieval-Augmented Generation)**
 
-```
-Pregunta → Busca en DB → Contexto + Pregunta → LLM → Respuesta
+```mermaid
+sequenceDiagram
+    participant User as Usuario
+    participant App as Aplicación
+    participant Retriever as Sistema de Recuperación
+    participant VectorDB as Vector Database
+    participant LLM as Modelo LLM
+
+    User->>App: Hace pregunta
+    App->>Retriever: "¿Cuál es nuestra política de devoluciones?"
+
+    Retriever->>VectorDB: Buscar documentos relevantes<br/>(semantic search)
+    VectorDB-->>Retriever: Top 3-5 documentos más relevantes
+
+    Retriever->>Retriever: Construir contexto<br/>con documentos
+
+    Retriever->>LLM: Prompt = Contexto + Pregunta
+    Note right of LLM: "Basándote en estos docs:<br/>[Política de devoluciones...]<br/>Responde: ¿Cuál es...?"
+
+    LLM-->>App: Respuesta generada con contexto
+    App-->>User: "Nuestra política permite<br/>devoluciones en 30 días..."
+
+    Note over VectorDB,LLM: ✅ Respuestas basadas en tus datos<br/>✅ Sin reentrenamiento<br/>✅ Fácil actualización
 ```
 
 **Ideal para:**
@@ -241,8 +291,33 @@ El arte y ciencia de diseñar instrucciones efectivas para obtener los mejores r
 
 #### Anatomía de un Buen Prompt
 
-```
-[Rol] + [Contexto] + [Tarea] + [Formato] + [Restricciones]
+```mermaid
+mindmap
+  root((Prompt<br/>Efectivo))
+    Rol
+      Definir expertise
+      "Eres un..."
+      Establece tono
+    Contexto
+      Background info
+      Situación actual
+      Datos relevantes
+    Tarea
+      Qué hacer
+      Objetivo claro
+      Acción específica
+    Formato
+      Estructura output
+      Longitud
+      Estilo
+    Restricciones
+      Qué evitar
+      Límites
+      Reglas
+    Ejemplos
+      Few-shot
+      Casos concretos
+      Patrones
 ```
 
 **Ejemplo básico:**
@@ -450,6 +525,39 @@ Orquestación: Zapier + Webhooks
 Analytics: Mixpanel
 ```
 
+```mermaid
+graph TB
+    subgraph "Resultados Comparativos"
+        Before[Antes de IA<br/>━━━━━━━<br/>Conversion: 15%<br/>Ciclo: 45 días<br/>Revenue: $300K]
+        After[Con IA<br/>━━━━━━━<br/>Conversion: 28%<br/>Ciclo: 32 días<br/>Revenue: $475K]
+
+        Before -.->|Implementación| After
+    end
+
+    subgraph "Mejoras Clave"
+        Conv["+87% Conversion"]
+        Time["-29% Ciclo ventas"]
+        Rev["+58% Revenue"]
+        Eff["-62% tiempo desperdiciado"]
+    end
+
+    After --> Conv
+    After --> Time
+    After --> Rev
+    After --> Eff
+
+    ROI[ROI: 380%]
+
+    Conv --> ROI
+    Time --> ROI
+    Rev --> ROI
+    Eff --> ROI
+
+    style Before fill:#FF5252,stroke:#C62828,color:#fff
+    style After fill:#4CAF50,stroke:#2E7D32,color:#fff
+    style ROI fill:#2196F3,stroke:#1565C0,color:#fff,stroke-width:3px
+```
+
 **Factores analizados por IA:**
 - Tamaño de empresa
 - Industria
@@ -556,6 +664,29 @@ Integration: SAP ERP
 ---
 
 ### 3.5 Hoja de Ruta para Implementación
+
+#### Roadmap Visual de Implementación
+
+```mermaid
+gantt
+    title Hoja de Ruta de Implementación de IA
+    dateFormat YYYY-MM-DD
+    section Fase 1: Evaluación
+    Identificar casos de uso    :p1, 2025-01-01, 14d
+    Evaluar viabilidad técnica   :p2, after p1, 7d
+    Estimar recursos y ROI       :p3, after p2, 7d
+    section Fase 2: MVP
+    Diseñar solución mínima      :mvp1, after p3, 14d
+    Desarrollo e iteración       :mvp2, after mvp1, 21d
+    Testing con usuarios         :mvp3, after mvp2, 7d
+    section Fase 3: Producción
+    Escalar solución             :prod1, after mvp3, 30d
+    Integrar con sistemas        :prod2, after prod1, 21d
+    Lanzamiento gradual          :prod3, after prod2, 14d
+    section Fase 4: Optimización
+    Monitoreo continuo           :opt1, after prod3, 90d
+    Mejoras iterativas           :opt2, after prod3, 90d
+```
 
 #### Fase 1: Evaluación y Planificación (2-4 semanas)
 

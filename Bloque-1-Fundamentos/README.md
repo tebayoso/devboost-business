@@ -29,7 +29,44 @@ La Inteligencia Artificial Generativa es una tecnología que permite crear conte
 - 💪 Impacto: **$4.4 billones** en productividad estimada
 - 🚀 Tendencia: Todas las organizaciones de ventas usan IA en 2025
 
+**Evolución del Mercado:**
+
+```mermaid
+graph LR
+    A[2020<br/>$30B] -->|+40%| B[2021<br/>$42B]
+    B -->|+45%| C[2022<br/>$61B]
+    C -->|+50%| D[2023<br/>$91B]
+    D -->|+38%| E[2025<br/>$126B]
+
+    style E fill:#4CAF50,stroke:#2E7D32,color:#fff
+```
+
 #### Diferencias Clave
+
+```mermaid
+graph TD
+    subgraph "IA Tradicional"
+        A1[Entrada de Datos] --> B1[Modelo Entrenado]
+        B1 --> C1{Tipo de Tarea}
+        C1 -->|Clasificar| D1[Categoría A o B]
+        C1 -->|Predecir| D2[Valor Numérico]
+        C1 -->|Reconocer| D3[Patrón Identificado]
+    end
+
+    subgraph "IA Generativa"
+        A2[Prompt/Instrucción] --> B2[LLM]
+        B2 --> C2{Genera}
+        C2 --> D4[Texto Nuevo]
+        C2 --> D5[Código]
+        C2 --> D6[Imágenes]
+        C2 --> D7[Razonamiento]
+    end
+
+    style A1 fill:#FFC107,stroke:#F57C00
+    style A2 fill:#4CAF50,stroke:#2E7D32
+```
+
+**Diferencias principales:**
 - **IA Tradicional**: Clasifica, predice, reconoce patrones
 - **IA Generativa**: Crea contenido nuevo, razona, toma decisiones
 - **Automatización Inteligente**: Combina ML + NLP para decisiones autónomas
@@ -45,6 +82,31 @@ La Inteligencia Artificial Generativa es una tecnología que permite crear conte
 ### 1.2 Principales Modelos y Plataformas
 
 #### Comparativa de Modelos 2025
+
+```mermaid
+mindmap
+  root((Modelos LLM<br/>2025))
+    GPT-4
+      Versatilidad
+      Razonamiento
+      Ecosistema
+    Claude 3
+      Contexto largo
+      Precisión
+      Análisis profundo
+    Grok
+      Tiempo real
+      Twitter/X
+      Actualidad
+    Gemini
+      Multimodal
+      Google Suite
+      Búsqueda
+    LLaMA
+      Open Source
+      Personalizable
+      On-premise
+```
 
 | Modelo | Empresa | Fortalezas | Casos de Uso Principales |
 |--------|---------|-----------|-------------------------|
@@ -151,6 +213,32 @@ La Inteligencia Artificial Generativa es una tecnología que permite crear conte
 ### 1.4 Evaluación de Oportunidades y ROI
 
 #### Framework de Evaluación
+
+```mermaid
+flowchart TD
+    Start[Inicio] --> Identify[Identificar Problema]
+    Identify --> Data{¿Hay datos<br/>suficientes?}
+    Data -->|No| DataCollect[Recolectar Datos]
+    DataCollect --> Data
+    Data -->|Sí| Viable{¿Viabilidad<br/>técnica?}
+    Viable -->|No| Alternative[Buscar alternativas]
+    Viable -->|Sí| ROI[Calcular ROI]
+    ROI --> Cost[Estimar Costos]
+    ROI --> Benefits[Estimar Beneficios]
+    Cost --> Compare{ROI > 100%<br/>a 12 meses?}
+    Benefits --> Compare
+    Compare -->|No| Reevaluate[Re-evaluar o descartar]
+    Compare -->|Sí| Pilot[Implementar MVP]
+    Pilot --> Measure[Medir Resultados]
+    Measure --> Success{¿Exitoso?}
+    Success -->|Sí| Scale[Escalar]
+    Success -->|No| Iterate[Iterar o Pivotar]
+    Iterate --> Pilot
+
+    style Start fill:#2196F3,stroke:#1976D2,color:#fff
+    style Scale fill:#4CAF50,stroke:#2E7D32,color:#fff
+    style Reevaluate fill:#F44336,stroke:#C62828,color:#fff
+```
 
 **Paso 1: Identificar el Problema**
 - ¿Qué proceso consume más tiempo/recursos?

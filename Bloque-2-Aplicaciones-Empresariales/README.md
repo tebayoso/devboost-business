@@ -23,6 +23,33 @@ Al finalizar este bloque, serás capaz de:
 #### Qué es la Automatización Inteligente
 La automatización inteligente combina **Machine Learning (ML)** y **Procesamiento de Lenguaje Natural (NLP)** para manejar tareas que requieren razonamiento y toma de decisiones, no solo seguir reglas fijas.
 
+**Flujo de Automatización Inteligente:**
+
+```mermaid
+flowchart TD
+    Start[Entrada de Tarea] --> Classify{IA Clasifica<br/>Tipo de Tarea}
+    Classify -->|Repetitiva| Auto1[Automatización<br/>Total]
+    Classify -->|Semi-compleja| Auto2[Asistencia IA<br/>+ Humano]
+    Classify -->|Compleja| Human[Escalamiento<br/>a Experto]
+
+    Auto1 --> Execute[IA Ejecuta]
+    Execute --> Validate{Validación<br/>Automática}
+    Validate -->|OK| Complete[✓ Completado]
+    Validate -->|Error| Auto2
+
+    Auto2 --> Assist[IA Sugiere]
+    Assist --> HumanDecision[Humano Decide]
+    HumanDecision --> Execute2[Ejecutar Acción]
+    Execute2 --> Complete
+
+    Human --> Expert[Experto Maneja]
+    Expert --> Learn[IA Aprende<br/>del Proceso]
+    Learn --> Complete
+
+    style Complete fill:#4CAF50,stroke:#2E7D32,color:#fff
+    style Execute fill:#2196F3,stroke:#1976D2,color:#fff
+```
+
 **Diferencia clave vs Automatización Tradicional:**
 
 | Aspecto | Automatización Tradicional | Automatización Inteligente |
@@ -104,6 +131,53 @@ La automatización inteligente combina **Machine Learning (ML)** y **Procesamien
 #### Transformación del Soporte al Cliente
 
 La IA revoluciona el soporte ofreciendo respuestas **rápidas, eficientes y personalizadas 24/7**, reduciendo tiempos de espera y tareas repetitivas.
+
+**Arquitectura de Sistema de Chatbot:**
+
+```mermaid
+graph TB
+    subgraph "Frontend"
+        Widget[Widget de Chat]
+        Mobile[App Móvil]
+        Web[Dashboard Web]
+    end
+
+    subgraph "Capa de Orquestación"
+        Router[Router de Intenciones]
+        Context[Gestor de Contexto]
+        Analytics[Analytics en Tiempo Real]
+    end
+
+    subgraph "Capa de IA"
+        NLP[NLP Engine]
+        LLM[LLM<br/>GPT-4/Claude]
+        KB[Base de<br/>Conocimientos]
+        Vector[(Vector DB)]
+    end
+
+    subgraph "Integraciones"
+        CRM[(CRM)]
+        Tickets[(Sistema<br/>Tickets)]
+        Docs[(Documentación)]
+    end
+
+    Widget --> Router
+    Mobile --> Router
+    Web --> Router
+
+    Router --> NLP
+    Router --> Context
+    NLP --> LLM
+    LLM --> KB
+    KB --> Vector
+
+    Router --> Analytics
+    Context --> CRM
+    Context --> Tickets
+    KB --> Docs
+
+    style LLM fill:#4CAF50,stroke:#2E7D32,color:#fff
+```
 
 **Beneficios principales:**
 - ⏰ Disponibilidad 24/7/365
@@ -214,6 +288,34 @@ Nivel 3: Especialista para casos complejos (5-10%)
 #### Optimización del Proceso de Ventas
 
 En 2025, **todas las organizaciones de ventas** usan IA para automatizar y optimizar procesos, aumentando conversiones y acelerando el embudo de ventas.
+
+**Embudo de Ventas Inteligente:**
+
+```mermaid
+graph TD
+    A[1000 Leads] -->|IA Score| B{Calificación}
+    B -->|Alta: 300| C[Leads Calientes]
+    B -->|Media: 400| D[Leads Tibios]
+    B -->|Baja: 300| E[Leads Fríos]
+
+    C -->|IA Personaliza| F[Email Automático<br/>Personalizado]
+    F --> G[150 Responden]
+    G -->|IA Analiza| H[Detección de<br/>Oportunidad]
+    H --> I[75 Reuniones]
+    I --> J[45 Propuestas]
+    J --> K[25 Cierres]
+
+    D -->|Nurturing IA| L[Contenido<br/>Automático]
+    L --> M[+100 Calientes]
+    M --> C
+
+    E -->|IA Monitorea| N[Señales de<br/>Intención]
+    N --> O[+50 Tibios]
+    O --> D
+
+    style K fill:#4CAF50,stroke:#2E7D32,color:#fff,stroke-width:3px
+    style C fill:#FF9800,stroke:#F57C00,color:#fff
+```
 
 #### Priorización y Calificación de Leads
 
